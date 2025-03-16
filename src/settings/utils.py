@@ -10,5 +10,5 @@ def get_selenium_driver():
     options.add_argument('--headless')
     options.add_argument('--disable-dev-shm-usage')
 
-    driver = Chrome(service=Service(config.CHROME_DRIVER_PATH), options=options)
+    driver = Chrome(service=Service(), options=options)
     return driver
