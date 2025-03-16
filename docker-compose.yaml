@@ -24,13 +24,6 @@ services:
       timeout: 10s
       retries: 5
 
-  selenium:
-    container_name: technesis-selenium
-    image: selenium/standalone-chrome
-    expose:
-      - 4444
-    restart: always
-
 volumes:
   technesis_telegram_bot_data:
   technesis_redis_data:
