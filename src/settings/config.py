@@ -15,10 +15,6 @@ SQLITE_PATH = getenv("SQLITE_PATH", BASE_DIR / 'technesis.sqlite3')
 REDIS_HOST = getenv("REDIS_HOST")
 REDIS_PORT = getenv("REDIS_PORT")
 REDIS_DB = getenv("REDIS_DB")
-SELENIUM_HOST = getenv("SELENIUM_HOST")
-SELENIUM_PORT = getenv("SELENIUM_PORT")
 
 EXCEL_EXTENSIONS = {".xlsx", ".xls"}
 HTTP_SESSION_TIMEOUT = 15
-
-CHROME_DRIVER_PATH = BASE_DIR / "chromedriver"
