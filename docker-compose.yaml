@@ -1,0 +1,36 @@
+
+services:
+  telegram-bot:
+    container_name: technesis-telegram-bot
+    restart: always
+    build:
+      context: ./src/
+    env_file:
+      - ./src/.env
+    depends_on:
+      - redis
+
+  redis:
+    container_name: technesis-redis
+    image: redis:7.4.2-alpine
+    expose:
+     - 6379
+    volumes:
+      - technesis_redis_data:/var/lib/redis/data/
+    restart: always
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  selenium:
+    container_name: technesis-selenium
+    image: selenium/standalone-chrome
+    expose:
+      - 4444
+    restart: always
+
+volumes:
+  technesis_telegram_bot_data:
+  technesis_redis_data:
