@@ -2,14 +2,11 @@ import logging
 
 from lxml import html
 from selenium.common import TimeoutException
-from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from webdriver_manager.chrome import ChromeDriverManager
 
 from db.connection import DatabaseConnection
 from db.dals import SitesDAL
