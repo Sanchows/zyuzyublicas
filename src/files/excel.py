@@ -76,7 +76,7 @@ class SitesExcelReader(ExcelReader):
                     url=row[1]['url'],
                     xpath=row[1]['xpath']
                 )
-            except ValidationError as e:
+            except ValidationError:
                 raise InvalidFileDataException(
                     f"Ошибка при чтении excel файла на строке №{row[0]}: недопустимое значение"
                 )

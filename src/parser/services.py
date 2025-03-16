@@ -32,7 +32,7 @@ async def get_prices_by_site():
                 logger.info("Парсинг записи: %s", site)
                 try:
                     price = await get_price(driver=driver, url=str(site.url), xpath=site.xpath)
-                except TimeoutException as e:
+                except TimeoutException:
                     logger.debug("TimeoutException. Запись: %s", site)
                     continue
                 url_prices_map.setdefault(str(site.url), []).append(price)

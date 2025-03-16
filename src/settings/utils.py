@@ -1,8 +1,6 @@
 from selenium.webdriver import Chrome, ChromeOptions
 from selenium.webdriver.chrome.service import Service
 
-from settings import config
-
 
 def get_selenium_driver():
     options = ChromeOptions()
