@@ -60,8 +60,9 @@ class SitesExcelReader(ExcelReader):
         required_columns = {'title', 'url', 'xpath'}
         if not required_columns.issubset(self.file.data_frame.columns):
             missing_columns = required_columns - set(self.file.data_frame.columns)
+            missing_columns_text = ", ".join(missing_columns)
             raise MissedRequiredColumnsException(
-                f"В файле отсутствуют необходимые столбцы: {", ".join(missing_columns)}"
+                f"В файле отсутствуют необходимые столбцы: {missing_columns_text}"
             )
 
     def check(self):
