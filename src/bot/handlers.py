@@ -77,7 +77,12 @@ async def btn_parse_table_sites(callback_query: types.CallbackQuery):
     await callback_query.bot.send_chat_action(callback_query.message.chat.id, ChatAction.TYPING)
     await callback_query.message.answer(text="Парсим данные, ожидайте, это занимает некоторое время...")
     await callback_query.bot.send_chat_action(callback_query.message.chat.id, ChatAction.TYPING)
-    avg_prices = await get_avg_prices_by_site()
+    try:
+        avg_prices = await get_avg_prices_by_site()
+    except Exception as e:
+        await callback_query.message.answer(text="Oops... Что-то пошло не так")
+        raise e from None
+
     avg_prices_text = [
         constants.AVG_PRICE_TEMPLATE.format(site=site, avg_price=avg_price)
         for site, avg_price in avg_prices.items()
